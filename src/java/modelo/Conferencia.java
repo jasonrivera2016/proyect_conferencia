@@ -38,7 +38,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Conferencia.findByCapacidad", query = "SELECT c FROM Conferencia c WHERE c.capacidad = :capacidad"),
     @NamedQuery(name = "Conferencia.findByFechaHora", query = "SELECT c FROM Conferencia c WHERE c.fechaHora = :fechaHora"),
     @NamedQuery(name = "Conferencia.findByCosto", query = "SELECT c FROM Conferencia c WHERE c.costo = :costo"),
-    @NamedQuery(name = "Conferencia.findBySala", query = "SELECT c FROM Conferencia c WHERE c.sala = :sala")})
+    @NamedQuery(name = "Conferencia.findBySala", query = "SELECT c FROM Conferencia c WHERE c.sala = :sala"),
+    @NamedQuery(name = "Conferencia.findByEncargado", query = "SELECT c FROM Conferencia c WHERE c.encargado = :encargado")})
 public class Conferencia implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -80,6 +81,10 @@ public class Conferencia implements Serializable {
     @NotNull
     @Column(name = "sala")
     private int sala;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "encargado")
+    private String encargado;
 
     public Conferencia() {
     }
@@ -88,7 +93,7 @@ public class Conferencia implements Serializable {
         this.id = id;
     }
 
-    public Conferencia(Integer id, String nombreConferencia, String nombreExpositor, int capacidad, Date fechaHora, String descripcion, int costo, int sala) {
+    public Conferencia(Integer id, String nombreConferencia, String nombreExpositor, int capacidad, Date fechaHora, String descripcion, int costo, int sala, String encargado) {
         this.id = id;
         this.nombreConferencia = nombreConferencia;
         this.nombreExpositor = nombreExpositor;
@@ -97,6 +102,7 @@ public class Conferencia implements Serializable {
         this.descripcion = descripcion;
         this.costo = costo;
         this.sala = sala;
+        this.encargado = encargado;
     }
 
     public Integer getId() {
@@ -168,6 +174,14 @@ public class Conferencia implements Serializable {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
         return hash;
+    }
+
+    public String getEncargado() {
+        return encargado;
+    }
+
+    public void setEncargado(String encargado) {
+        this.encargado = encargado;
     }
 
     @Override

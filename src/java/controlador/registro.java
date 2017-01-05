@@ -48,6 +48,8 @@ public class registro extends HttpServlet {
           em.persist(registro);
           em.flush();
           em.getTransaction().commit();
+          em.close();
+          emf.close();
           response.sendRedirect("correcto.jsp");
 
     }
