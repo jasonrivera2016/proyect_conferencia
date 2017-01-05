@@ -7,30 +7,30 @@
     </head>
     <body>
         
-        <form action="registro.java" method="post">
+        <form action="registro_conferencia" method="post">
          Nombre Conferencia:
-                <input type="text" name="Nombre conferencia">
+                <input type="text" name="nombre_conferencia"/>
                 <br/>
          Nombre Expositor:
-                <input type="text" name="Nombre Expositor">
+                <input type="text" name="nombre_expositor"/>
                 <br/>
          Capacidad:
-                  <input type="text" name="Capacidad">
+                  <input type="number" name="capacidad"/>
                   <br/>
          Fecha y hora:
-                <input type="text" name="fecha y hora">
+                <input type="date" name="fecha_hora"/>
                 <br/>
         Descripcion:
-                 <input type="text area" name="AAA-MM-DD 00:00:00">
+                <textarea name="descripcion"></textarea>
                 <br/>
          Costo:
-                <input type="text" name="costo">
+                <input type="number" name="costo"/>
                 <br/>
           Sala:
-                <input type="text" name="sala">
+                <input type="text" name="sala"/>
                 <br/>
          Encargado:
-                <input type="text" name="encargado">
+                <input type="text" name="encargado"/>
                 <br/>
     <p><input type="submit" value="Enviar"></p>
 </form>
